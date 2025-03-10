@@ -1,0 +1,28 @@
+name: Ma super CICD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: checkout de code
+        uses: actions/checkout@v3
+
+      - name: Configurer node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Installations des dépendances
+        run: npm install
+
+      - name: Lancement des test unitaire
+        run: npm run test
+
+      - name: Build de l'appli
+        run: npm run serve
