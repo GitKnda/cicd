@@ -25,4 +25,4 @@ jobs:
         run: npm run test
 
       - name: Build de l'appli
-        run: npm run serve
+        run: npm run build
